@@ -2,7 +2,7 @@ extends Sprite2D
 
 var pos: Vector2 = Vector2.ZERO
 var test_scale: int = 1
-const speed: int = 10
+const speed: int = 100
 
 func _ready():
 #	print("ready")
@@ -23,7 +23,7 @@ func _process(delta):
 
 #	position.x += 10
 
-	pos.x += speed
+	pos.x += speed * delta
 	position = pos
 
 #	test_scale += 1
