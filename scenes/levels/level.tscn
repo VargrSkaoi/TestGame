@@ -7,13 +7,18 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dwycr")
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("4_anc5x")]
 position = Vector2(543, 563)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1, 1.01557)
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
 [node name="Gate" parent="." instance=ExtResource("4_usiad")]
 position = Vector2(513, -228)
-
-[node name="Projectiles" type="Node2D" parent="."]
 
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="lazer" from="Player" to="." method="_on_player_lazer"]
