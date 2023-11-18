@@ -18,8 +18,8 @@ func _ready():
 	test_scale = 2
 	scale = Vector2(test_scale, test_scale)
 	
-	print($"..".test_array)
-	$"..".test_function()
+#	print($"..".test_array)
+#	$"..".test_function()
 	
 func _process(delta):
 #	print("process")
