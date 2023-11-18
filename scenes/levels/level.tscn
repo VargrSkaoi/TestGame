@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bop2035rft6ql"]
+[gd_scene load_steps=4 format=3 uid="uid://bop2035rft6ql"]
 
 [ext_resource type="Script" path="res://scenes/scripts/level.gd" id="1_dwycr"]
-[ext_resource type="Texture2D" uid="uid://c6w08sx01mh2u" path="res://graphics/objects/gate.png" id="3_se3ov"]
 [ext_resource type="PackedScene" uid="uid://dbbxwiyc1c0ft" path="res://scenes/player/player.tscn" id="4_anc5x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u2ac"]
-size = Vector2(838, 182)
+[ext_resource type="PackedScene" uid="uid://cjkcvf6dbi6t7" path="res://scenes/objects/gate.tscn" id="4_usiad"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dwycr")
@@ -13,21 +10,10 @@ script = ExtResource("1_dwycr")
 [node name="Player" parent="." instance=ExtResource("4_anc5x")]
 position = Vector2(543, 563)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(530, -184)
-scale = Vector2(0.5, 0.5)
+[node name="Gate" parent="." instance=ExtResource("4_usiad")]
+position = Vector2(513, -228)
 
-[node name="Gate" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("3_se3ov")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(490, 780, 1348, 776, 1444, 738, 1522, 654, 1558, 562, 1558, -780, -1442, -778, -1440, 562, -1392, 672, -1312, 748, -1216, 778, -368, 778, -370, 592, 490, 588)
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-position = Vector2(61, 687)
-shape = SubResource("RectangleShape2D_2u2ac")
-
-[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="lazer" from="Player" to="." method="_on_player_lazer"]
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]

@@ -1,7 +1,13 @@
 extends Node2D
 
-func _on_area_2d_body_entered(_body):
-	print("body has entered")
+func _on_gate_player_entered_gate():
+	print("player entered gate")
 
-func _on_area_2d_body_exited(_body):
-	print("body has exited")
+func _on_gate_player_exited_gate():
+	print("player exited gate")
+
+func _on_player_lazer():
+	print("lazer from level")
+
+func _on_player_grenade():
+	print("grenade from level")
