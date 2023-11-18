@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal lazer
+signal lazer(position)
 signal grenade
 
 var can_lazer: bool = true
@@ -12,9 +12,11 @@ func _process(_delta):
 	move_and_slide()
 	
 	if(Input.is_action_pressed("primary_action") and can_lazer):
+		var lazer_markers = $LazerStartPositions.get_children()
+		var selected_lazer = lazer_markers[randi() % lazer_markers.size()]
 		can_lazer = false
 		$Timer.start()
-		lazer.emit()
+		lazer.emit(selected_lazer.global_position)
 		
 	if(Input.is_action_pressed("secondary_action") and can_grenade):
 		can_grenade = false

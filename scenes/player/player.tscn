@@ -24,5 +24,16 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="LazerStartPositions" type="Node2D" parent="."]
+
+[node name="Position1" type="Marker2D" parent="LazerStartPositions"]
+position = Vector2(13, -138)
+
+[node name="Position2" type="Marker2D" parent="LazerStartPositions"]
+position = Vector2(23, -141)
+
+[node name="Position3" type="Marker2D" parent="LazerStartPositions"]
+position = Vector2(33, -138)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
