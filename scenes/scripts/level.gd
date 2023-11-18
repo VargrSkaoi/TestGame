@@ -11,8 +11,9 @@ func _ready():
 #		print(i)
 #
 #	print(test_array[0])
-	print($Sprite2D/Sprite2D2/Sprite2D3/Input)
-	print(%Input)
+
+#	print($Sprite2D/Sprite2D2/Sprite2D3/Input)
+#	print(%Input)
 	
 func _process(delta):
 	$Logo.rotation_degrees += 100 * delta
@@ -25,3 +26,6 @@ func _process(delta):
 		$Logo.pos.x = 0
 	
 #	print(Input.is_action_pressed("left"))
+
+func test_function():
+	print("this is a test function")
